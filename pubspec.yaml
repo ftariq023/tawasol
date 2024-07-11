@@ -1,0 +1,252 @@
+name: tawasol
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.1.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  build_runner: ^2.4.6
+  http: ^1.1.0
+  encrypt: ^5.0.1
+  # flutter_slidable: ^3.0.0
+  flutter_slidable: ^3.1.0
+  syncfusion_flutter_pdfviewer: ^22.1.34
+  intl: ^0.18.1
+  flutter_localizations:
+    sdk: flutter
+  local_auth: ^2.1.6
+  dropdown_search: ^5.0.6
+  path_provider: ^2.1.2
+  flutter_svg: ^2.0.7
+  badges: ^3.1.1
+  indexed: ^0.0.8
+  group_button: ^5.3.2
+  screen_protector: ^1.2.0
+  printing: ^5.11.0
+  device_info_plus: ^9.0.3
+  carousel_slider: ^4.2.1
+  flutter_html: ^3.0.0-beta.2
+  flutter_jailbreak_detection: ^1.10.0
+  html: ^0.15.4
+  provider: ^5.0.0
+  flutter_secure_storage: ^9.0.0
+  custom_pop_up_menu: ^1.2.4
+  animated_splash_screen: ^1.3.0
+  # flutter_native_splash: ^2.3.9
+  flutter_launcher_icons: ^0.13.1
+  package_info_plus: ^4.2.0
+  flutter_cache_manager: ^3.3.1
+  clipboard: ^0.1.3
+  fluttertoast: ^8.0.0
+  another_flutter_splash_screen: ^1.2.0
+  readmore: ^2.2.0
+  dynatrace_flutter_plugin: ^3.291.1
+  step_progress_indicator: ^1.0.2
+  haptic_feedback: ^0.4.2
+  flutter_swipe_detector: ^2.0.0
+  animated_snack_bar: ^0.4.0
+  multi_dropdown: ^2.1.4
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+  get:
+
+flutter_native_splash:
+  color: "#0c4160"
+  # image: assets/images/Mersal_NewSplash.png
+  android: true
+  ios: true
+  web: false
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/Iconlogo1.png"
+  adaptive_icon_foreground: "assets/images/Iconlogo1.png"
+  adaptive_icon_background: "#0c4160"
+  min_sdk_android: 16
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  generate: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/logo.png
+    - assets/images/logo_moi.png
+    - assets/images/new_en.png
+    - assets/images/new_ar.png
+    - assets/images/logo_moi_white.png
+    - assets/images/login_bg.png
+    - assets/images/face_id.svg
+    - assets/images/doc_history.svg
+    - assets/images/link_doc.svg
+    - assets/images/incoming.svg
+    - assets/images/outgoing.svg
+    - assets/images/memo.svg
+    - assets/images/clear.svg
+    - assets/certificates/qfa_ssl.cer
+    - assets/certificates/moci_ssl.cer
+    - assets/certificates/cloud_ssl.cer
+    - assets/images/approve_new.svg
+    - assets/images/approve_new.png
+    - assets/images/approve_shortcut_new.svg
+    - assets/images/approve_shortcut_new.png
+    - assets/images/department_list_view_new.svg
+    - assets/images/department_list_view_new.png
+    - assets/images/document_list_view_new.svg
+    - assets/images/document_list_view_new.png
+    - assets/images/inbox_main_new.svg
+    - assets/images/inbox_new.svg
+    - assets/images/inbox_new.png
+    - assets/images/lock_login_new.svg
+    - assets/images/logout_new.svg
+    - assets/images/multi_send_new.svg
+    - assets/images/multi_send_new.png
+    - assets/images/multi_send_shortcut_new.svg
+    - assets/images/multi_send_shortcut_new.png
+    - assets/images/person_list_view_new.svg
+    - assets/images/person_list_view_new.png
+    - assets/images/person_login_new.svg
+    - assets/images/send_new.svg
+    - assets/images/send_shortcut_new.svg
+    - assets/images/send_shortcut_new.png
+    - assets/images/sent_main_new.svg
+    - assets/images/sent_new.svg
+    - assets/images/sent_new.png
+    - assets/images/settings_new.svg
+    - assets/images/settings_new.png
+    - assets/images/terminate_new.svg
+    - assets/images/terminate_new.png
+    - assets/images/terminate_shortcut_new.svg
+    - assets/images/terminate_shortcut_new.png
+    - assets/images/action_list_item_new.svg
+    - assets/images/comment_list_item_new.svg
+    - assets/images/search_new.svg
+    - assets/images/search_new.png
+    - assets/images/followup_new.svg
+    - assets/images/followup_new.png
+    - assets/images/inbox_active_new.svg
+    - assets/images/inbox_active_new.png
+    - assets/images/sent_active_new.svg
+    - assets/images/sent_active_new.png
+    - assets/images/followup_active_new.svg
+    - assets/images/followup_active_new.png
+    - assets/images/settings_active_new.svg
+    - assets/images/settings_active_new.png
+    - assets/images/search_active_new.svg
+    - assets/images/search_active_new.png
+    - assets/images/moi_bg_new.png
+    - assets/images/header_moi.png
+    - assets/images/inbox_main.png
+    - assets/images/sent_main.png
+    - assets/images/followup_main.png
+    - assets/images/inbox_active_main.png
+    - assets/images/sent_active_main.png
+    - assets/images/followup_active_main.png
+    - assets/images/doc_history.png
+    - assets/images/doc_info.png
+    - assets/images/sender_history.png
+    - assets/images/receiver_history.png
+    - assets/images/date_history.png
+    - assets/images/attachment.png
+    - assets/images/moi_morasalat_logo_new.png
+    - assets/images/loginPageLogo.png
+    - assets/images/lunchScreen.gif
+    - assets/images/launchScreenPMO.gif
+    - assets/images/launchScreenPMO2.gif
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Lusail Regular
+      fonts:
+        - asset: assets/fonts/Lusail-Regular.otf
+
+    - family: Lusail Bold
+      fonts:
+        - asset: assets/fonts/Lusail-Bold.otf
+
+    - family: Lusail Light
+      fonts:
+        - asset: assets/fonts/Lusail-Light.otf
+
+    - family: Arial
+      fonts:
+        - asset: assets/fonts/arial.ttf
+
+    - family: Lusail Medium
+      fonts:
+        - asset: assets/fonts/Lusail-Medium.otf
+
+    - family: AlMajd
+      fonts:
+        - asset: assets/fonts/AlMajd-Qatar-Regular.ttf
+
+    - family: NotoNaskhArabic
+      fonts:
+        - asset: assets/fonts/NotoNaskhArabic-Regular.ttf
+
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

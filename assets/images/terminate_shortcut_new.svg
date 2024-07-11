@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_12">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_12" data-name="Artboard – 12" clip-path="url(#clip-Artboard_12)">
+    <rect width="35" height="34" fill-opacity="0"/>
+    <g id="_13" data-name="13" transform="translate(4.572 7.598)">
+      <g id="Group_93345" data-name="Group 93345">
+        <path id="Path_134234" data-name="Path 134234" d="M35.268,16H10.588a.59.59,0,0,0-.588.588V34.217a.59.59,0,0,0,.588.588H35.268a.59.59,0,0,0,.588-.588V16.588A.59.59,0,0,0,35.268,16ZM28.8,25.4a5.764,5.764,0,0,1-.629,2.639,5.876,5.876,0,1,1,.2-4.836A5.806,5.806,0,0,1,28.8,25.4Z" transform="translate(-10 -16)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134235" data-name="Path 134235" d="M35.856,16.588v1.175L28.375,23.2a5.872,5.872,0,0,0-10.894,0L10,17.763V16.588A.59.59,0,0,1,10.588,16H35.268A.59.59,0,0,1,35.856,16.588Z" transform="translate(-10 -16)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134236" data-name="Path 134236" d="M35.856,42.078v.588a.59.59,0,0,1-.588.588H10.588A.59.59,0,0,1,10,42.666v-.588l7.68-5.588a5.871,5.871,0,0,0,10.5,0Z" transform="translate(-10 -24.449)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <line id="Line_906" data-name="Line 906" x1="5" transform="translate(10.462 9.567)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

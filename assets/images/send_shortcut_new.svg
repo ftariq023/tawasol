@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_15">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_15" data-name="Artboard – 15" clip-path="url(#clip-Artboard_15)">
+    <rect width="35" height="34" fill-opacity="0"/>
+    <g id="_6" data-name="6" transform="translate(6.678 6.178)">
+      <path id="Path_134277" data-name="Path 134277" d="M31.643,10,20.305,21.338,10,17.378Z" transform="translate(-10 -10)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_134278" data-name="Path 134278" d="M42.288,10,35.4,31.643,30.95,21.338Z" transform="translate(-20.645 -10)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_931" data-name="Line 931" y1="6.697" x2="6.697" transform="translate(0 14.602)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_932" data-name="Line 932" y1="3.348" x2="4.185" transform="translate(5.022 17.95)" fill="none" stroke="#a09275" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_933" data-name="Line 933" y1="3.348" x2="3.348" transform="translate(0 12.927)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

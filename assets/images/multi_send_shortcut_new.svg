@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_13">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_13" data-name="Artboard – 13" clip-path="url(#clip-Artboard_13)">
+    <rect width="35" height="34" fill-opacity="0"/>
+    <g id="Group_93350" data-name="Group 93350" transform="translate(2.92 5.688)">
+      <g id="_6" data-name="6">
+        <path id="Path_134277" data-name="Path 134277" d="M32.121,10,20.533,21.588,10,17.541Z" transform="translate(-10 -10)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134278" data-name="Path 134278" d="M42.538,10,35.5,32.121,30.95,21.588Z" transform="translate(-20.417 -10)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line_931" data-name="Line 931" y1="6.844" x2="6.844" transform="translate(0.387 14.924)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line_932" data-name="Line 932" y1="3.422" x2="3.422" transform="translate(5.52 18.346)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="Line_933" data-name="Line 933" y1="3.422" x2="3.422" transform="translate(0.387 13.213)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="_6-2" data-name="6" transform="translate(17.693 0.503)">
+        <path id="Path_134277-2" data-name="Path 134277" d="M42.659,10,31.193,23.48l3.063-9.529Z" transform="translate(-31.193 -10)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134278-2" data-name="Path 134278" d="M42.688,10,35.649,32.121l-4.4-8.7h0Z" transform="translate(-31.222 -10)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

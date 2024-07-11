@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_19">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_19" data-name="Artboard – 19" clip-path="url(#clip-Artboard_19)">
+    <rect width="35" height="34" fill="#fff"/>
+    <g id="Group_93340" data-name="Group 93340" transform="translate(7 6)">
+      <g id="Ellipse_885" data-name="Ellipse 885" fill="none" stroke="#0c4160" stroke-width="1">
+        <circle cx="11" cy="11" r="11" stroke="none"/>
+        <circle cx="11" cy="11" r="10.5" fill="none"/>
+      </g>
+      <g id="Group_93338" data-name="Group 93338" transform="translate(5 4)">
+        <g id="Rectangle_11808" data-name="Rectangle 11808" fill="none" stroke="#0c4160" stroke-width="1">
+          <rect width="12" height="14" rx="3" stroke="none"/>
+          <rect x="0.5" y="0.5" width="11" height="13" rx="2.5" fill="none"/>
+        </g>
+        <line id="Line_876" data-name="Line 876" x2="7.908" transform="translate(1.888 4.289)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-width="1"/>
+        <line id="Line_878" data-name="Line 878" x2="7.908" transform="translate(1.888 6.43)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-width="1"/>
+        <line id="Line_880" data-name="Line 880" x2="7.908" transform="translate(1.816 8.572)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-width="1"/>
+        <line id="Line_881" data-name="Line 881" x2="7.908" transform="translate(1.816 10.713)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

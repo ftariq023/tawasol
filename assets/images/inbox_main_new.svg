@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="52" viewBox="0 0 54 52">
+  <defs>
+    <clipPath id="clip-Artboard_22">
+      <rect width="54" height="52"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_22" data-name="Artboard – 22" clip-path="url(#clip-Artboard_22)">
+    <rect width="54" height="52" fill="#fff" fill-opacity="0"/>
+    <g id="Group_93400" data-name="Group 93400" transform="translate(6.643 11.195)">
+      <g id="Group_93345" data-name="Group 93345" transform="translate(0 0)">
+        <path id="Path_134234" data-name="Path 134234" d="M49.789,16H10.925a.928.928,0,0,0-.925.925v27.76a.928.928,0,0,0,.925.925H49.789a.928.928,0,0,0,.925-.925V16.925A.928.928,0,0,0,49.789,16ZM39.61,30.805a9.077,9.077,0,0,1-.99,4.155,9.252,9.252,0,1,1,.314-7.616A9.143,9.143,0,0,1,39.61,30.805Z" transform="translate(-10 -16)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134235" data-name="Path 134235" d="M50.714,16.925v1.851l-11.78,8.568a9.247,9.247,0,0,0-17.155,0L10,18.776V16.925A.928.928,0,0,1,10.925,16H49.789A.928.928,0,0,1,50.714,16.925Z" transform="translate(-10 -16)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134236" data-name="Path 134236" d="M50.714,45.29v.925a.928.928,0,0,1-.925.925H10.925A.928.928,0,0,1,10,46.215V45.29l12.094-8.8a9.245,9.245,0,0,0,16.526,0Z" transform="translate(-10 -17.53)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_93366" data-name="Group 93366" transform="translate(16.761 9.343)">
+        <path id="Path_134288" data-name="Path 134288" d="M-2408.38,843.2l-3.6,3.6-3.6-3.6" transform="translate(2415.571 -837.145)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_134289" data-name="Path 134289" d="M-2411.5,843.495v9.393" transform="translate(2415.165 -843.495)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

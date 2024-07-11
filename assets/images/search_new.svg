@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_35">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_35" data-name="Artboard – 35" clip-path="url(#clip-Artboard_35)">
+    <rect width="35" height="34" fill-opacity="0" fill="#fff"/>
+    <g id="Icon" transform="translate(8 7.21)">
+      <circle id="Oval" cx="8.456" cy="8.456" r="8.456" transform="translate(3.383)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Shape" d="M0,5.863,5.863,0" transform="translate(0 14.432)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

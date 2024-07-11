@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_30">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_30" data-name="Artboard – 30" clip-path="url(#clip-Artboard_30)">
+    <rect width="35" height="34" fill-opacity="0" fill="#fff"/>
+    <g id="vuesax_twotone_setting-2" data-name="vuesax/twotone/setting-2" transform="translate(4.798 4.298)">
+      <g id="vuesax_twotone_setting-2-2" data-name="vuesax/twotone/setting-2">
+        <g id="setting-2">
+          <path id="Vector" d="M0,9.059A2.017,2.017,0,0,1,2.011,7.048c1.916,0,2.7-1.355,1.736-3.017A2.01,2.01,0,0,1,4.488,1.29L6.319.242A1.767,1.767,0,0,1,8.732.877l.116.2c.953,1.662,2.519,1.662,3.482,0l.116-.2A1.767,1.767,0,0,1,14.861.242L16.692,1.29a2.01,2.01,0,0,1,.741,2.741c-.963,1.662-.18,3.017,1.736,3.017A2.017,2.017,0,0,1,21.18,9.059v1.863a2.017,2.017,0,0,1-2.011,2.011c-1.916,0-2.7,1.355-1.736,3.017a2.008,2.008,0,0,1-.741,2.741l-1.831,1.048a1.767,1.767,0,0,1-2.413-.635l-.116-.2c-.953-1.662-2.519-1.662-3.482,0l-.116.2a1.767,1.767,0,0,1-2.413.635L4.488,18.691a2.01,2.01,0,0,1-.741-2.741c.963-1.662.18-3.017-1.736-3.017A2.017,2.017,0,0,1,0,10.922Z" transform="translate(2.117 2.711)" fill="#0c4160" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="0 0"/>
+          <path id="Vector-2" data-name="Vector" d="M3.175,6.351A3.175,3.175,0,1,1,6.351,3.175,3.175,3.175,0,0,1,3.175,6.351Z" transform="translate(9.526 9.526)" fill="#0c4160" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="0 0"/>
+          <path id="Vector-3" data-name="Vector" d="M25.4,0V25.4H0V0Z" fill="none" stroke="#0c4160" stroke-width="1" opacity="0"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

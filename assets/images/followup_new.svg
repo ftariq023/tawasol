@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="34" viewBox="0 0 35 34">
+  <defs>
+    <clipPath id="clip-Artboard_3">
+      <rect width="35" height="34"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_3" data-name="Artboard – 3" clip-path="url(#clip-Artboard_3)">
+    <rect width="35" height="34" fill-opacity="0" fill="#fff"/>
+    <g id="_0" data-name="0" transform="translate(-3.516 -4.016)">
+      <path id="Path_134216" data-name="Path 134216" d="M12,29.6V32l-2-1.2Z" transform="translate(0 -9.786)" fill="none" stroke="#a09275" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_884" data-name="Line 884" x2="1" y2="2" transform="translate(15 18.031)" fill="none" stroke="#a09275" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_134218" data-name="Path 134218" d="M28.026,29.027V10.5a.5.5,0,0,0-.5-.5H10.5a.5.5,0,0,0-.5.5v7.01" transform="translate(0 0)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_134219" data-name="Path 134219" d="M42.006,46H38.5a.5.5,0,0,0-.5.5v3.5" transform="translate(-13.98 -17.974)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_134217" data-name="Path 134217" d="M17,26H33.027a1,1,0,0,1,1,1v4.006a1,1,0,0,1-1,1H17l-3-1.8V27.8Z" transform="translate(-1.997 -7.989)" fill="none" stroke="#a09275" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_882" data-name="Line 882" x2="12" transform="translate(16 20.031)" fill="none" stroke="#a09275" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_883" data-name="Line 883" y1="4" x2="1" transform="translate(15 20.031)" fill="none" stroke="#a09275" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_134220" data-name="Path 134220" d="M10,39v7.01a.5.5,0,0,0,.5.5H25.021" transform="translate(0 -14.479)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_885" data-name="Line 885" x2="18" transform="translate(10 14.031)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_886" data-name="Line 886" y2="4" transform="translate(14 10.031)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_887" data-name="Line 887" y2="4" transform="translate(24 10.031)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_888" data-name="Line 888" y1="3" x2="2" transform="translate(26 29.031)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <line id="Line_889" data-name="Line 889" x1="12" transform="translate(10 29.031)" fill="none" stroke="#0c4160" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
