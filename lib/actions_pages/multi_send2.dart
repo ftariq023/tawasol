@@ -87,6 +87,9 @@ class _MultiSendState extends State<MultiSend2> {
   List<WfAction?> selectedActions = [];
   List<UserComment?> selectedComments = [];
 
+  //
+  List displayedRecentUsersIds = [];
+
   // @override
   // void initState() {
   //   if (AppHelper.currentUserSession.ouId != -1) {
@@ -264,7 +267,7 @@ class _MultiSendState extends State<MultiSend2> {
 
   void handleNextUser() {
     if (_selectedAction == null) {
-      showSnackBar("الرجاء تحديد الإجراء§");
+      showSnackBar("الرجاء تحديد الإجراء");
       return;
     }
     // print("here");
@@ -290,7 +293,9 @@ class _MultiSendState extends State<MultiSend2> {
     if (rcptScreen != 1) {
       handlePrevUser();
     } else if (screen > 1) {
+      // if
       setState(() {
+        displayedRecentUsersIds.clear();
         screen--;
       });
     }
@@ -381,14 +386,11 @@ class _MultiSendState extends State<MultiSend2> {
       AppHelper.isSent = true;
 
       if (failedItemsSubject.isEmpty) {
-        // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        //     content: Text(
-        //   lang.sendSuccess,
-        // )));
-
         await Haptics.vibrate(HapticsType.success);
-        AppHelper.saveRecentlyUsedActions(selectedActions[0]!);
+        // AppHelper.saveRecentlyUsedActions(selectedActions[0]!);
+        AppHelper.saveRecentlyUsedActionsNew(selectedActions[0]!);
         AppHelper.saveRecentlyUsedUsers(selectedUsers);
+        if (!AppHelper.isClosed) Navigator.of(context).pop();
       } else {
         successResp = false;
         await Haptics.vibrate(HapticsType.error);
@@ -406,13 +408,15 @@ class _MultiSendState extends State<MultiSend2> {
 
     Widget getBtnCont(bool isBack) {
       return GestureDetector(
-        onTap: isBack ? goToPrevPg : () => Navigator.of(context).pop(),
+        // onTap: isBack ? goToPrevPg : () => Navigator.of(context).pop(),
+        onTap: isBack ? goToPrevPg : () {},
         child: Container(
           // height: double.infinity,
           width: mHeight * 0.055,
           // decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.black)),
           child: Icon(
-            isBack ? Icons.arrow_back_ios_new : Icons.close,
+            // isBack ? Icons.arrow_back_ios_new : Icons.close,
+            isBack ? Icons.arrow_back_ios_new : null,
             color: isBack && (screen == 1 || screen == 4) ? Colors.transparent : null,
             size: isMob
                 ? mWidth * 0.0525
@@ -436,6 +440,7 @@ class _MultiSendState extends State<MultiSend2> {
           // print("2nd");
           // List rcvdDepUsers = await ServiceHandler.getAllUsersByOUs(_selectedOu!.ouID, _selectedOu!.ouID == _selectedOu!.regOuID);
           // print(_selectedOu!.ouID);
+          displayedRecentUsersIds.clear();
           rcvdDepUsers = await ServiceHandler.getAllUsersByOUs(_selectedOu!.ouID, true);
           // List rcvdDepUsers = await ServiceHandler.getAllUsersByOUs(3, true);
           // print("rcvdDepUsers");
@@ -478,14 +483,6 @@ class _MultiSendState extends State<MultiSend2> {
       }
     }
 
-    // void handleButtonPress() {
-    //   if (screen < 3 || rcptScreen < selectedUsers.length)
-    //     goToNextPg();
-    //   else {
-    //     multiSend();
-    //   }
-    // }
-
     bool isRecentUserSelected(AppUser userr) {
       if (selectedRecentUsers.contains(userr)) return true;
       return false;
@@ -500,6 +497,22 @@ class _MultiSendState extends State<MultiSend2> {
       Haptics.vibrate(HapticsType.light);
     }
 
+    Widget displayRecentUsers(AppUser recentUser) {
+      if (displayedRecentUsersIds.contains(recentUser.id)) return Container();
+      displayedRecentUsersIds.add(recentUser.id);
+      return Align(
+        alignment: Alignment.centerRight,
+        child: RecentRcptContainer(
+          recentUser.arAppUserName,
+          mHeight,
+          mWidth,
+          () => handleRecentUserPress(recentUser),
+          isRecentUserSelected(recentUser),
+          appPrimaryColor,
+        ),
+      );
+    }
+
     return Padding(
       padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Container(
@@ -512,7 +525,8 @@ class _MultiSendState extends State<MultiSend2> {
         // color: const Color(0XFFFFFFFF),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(mWidth * 0.05),
-          color: const Color(0XFFFFFFFF),
+          // color: const Color(0XFFFFFFFF),
+          color: ThemeProvider.isDarkModeCheck() ? Colors.black : Colors.white,
         ),
         // padding: EdgeInsets.symmetric(horizontal: mWidth * 0.1),
         child: Column(
@@ -726,6 +740,7 @@ class _MultiSendState extends State<MultiSend2> {
                                               // disabledOptions: [setDepUsersForDropdown[0]],
                                               selectionType: SelectionType.multi,
                                               chipConfig: const ChipConfig(wrapType: WrapType.wrap),
+                                              isDarkMode: ThemeProvider.isDarkModeCheck(),
                                               // dropdownHeight: 300,
                                               optionTextStyle: const TextStyle(
                                                 fontSize: 16,
@@ -738,9 +753,11 @@ class _MultiSendState extends State<MultiSend2> {
                                               selectedOptionBackgroundColor: appPrimaryColor,
                                               hint: lang.selectOuUser,
                                               // selectedOptionTextColor: Colors.red,
-                                              fieldBackgroundColor: const Color(0XFFF1F1F1),
+                                              // fieldBackgroundColor: const Color(0XFFF1F1F1),
+                                              fieldBackgroundColor: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : const Color(0XFFF1F1F1),
                                               // fieldBackgroundColor: Colors.amber,
-                                              // optionsBackgroundColor: Colors.red,
+                                              optionsBackgroundColor: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : const Color(0XFFF1F1F1),
+                                              dropdownBackgroundColor: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : const Color(0XFFF1F1F1),
                                               // inputDecoration: BoxDecoration(
                                               //   color: appPrimaryColor,
                                               //   borderRadius: BorderRadius.circular(12.0),
@@ -749,7 +766,6 @@ class _MultiSendState extends State<MultiSend2> {
                                               //     width: 0.4,
                                               //   ),
                                               // ),
-                                              // dropdownBackgroundColor: Colors.purple,
                                               // selectedItemBuilder: (p0, p1) {
                                               //   return GestureDetector(
                                               //     onTap: () {
@@ -771,18 +787,19 @@ class _MultiSendState extends State<MultiSend2> {
                                               // },
                                             ),
                                             SizedBox(height: spaceBwContsinActionScreen),
-                                            for (AppUser aUser in AppHelper.recentUsers)
-                                              Align(
-                                                alignment: Alignment.centerRight,
-                                                child: RecentRcptContainer(
-                                                  aUser.arAppUserName,
-                                                  mHeight,
-                                                  mWidth,
-                                                  () => handleRecentUserPress(aUser),
-                                                  isRecentUserSelected(aUser),
-                                                  appPrimaryColor,
-                                                ),
-                                              ),
+                                            // for (AppUser aUser in AppHelper.recentUsers)
+                                            //   Align(
+                                            //     alignment: Alignment.centerRight,
+                                            //     child: RecentRcptContainer(
+                                            //       aUser.arAppUserName,
+                                            //       mHeight,
+                                            //       mWidth,
+                                            //       () => handleRecentUserPress(aUser),
+                                            //       isRecentUserSelected(aUser),
+                                            //       appPrimaryColor,
+                                            //     ),
+                                            //   ),
+                                            for (AppUser aUser in AppHelper.recentUsers) displayRecentUsers(aUser),
                                           ]
                                         ],
                                       ),
@@ -856,10 +873,10 @@ class _MultiSendState extends State<MultiSend2> {
                                           Container(
                                             height: mHeight * 0.162,
                                             padding: const EdgeInsets.all(8.0),
-                                            decoration: const BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                                            decoration: BoxDecoration(
+                                              borderRadius: const BorderRadius.all(Radius.circular(8)),
                                               // border: Border.all(color: appPrimaryColor, width: 0.5),
-                                              color: Color(0XFFF1F1F1), //AppHelper.myColor('#ededed'),
+                                              color: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : Color(0XFFF1F1F1), //AppHelper.myColor('#ededed'),
                                             ),
                                             child: TextFormField(
                                               controller: userCommentController,

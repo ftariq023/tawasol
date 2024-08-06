@@ -371,9 +371,16 @@ class ViewDocument extends StatelessWidget {
                                 //
                                 //
                                 if (isApproved) {
-                                  if (currentItem.securityLevelId == 4)
-                                    Routes.moveSend(context: context, selectedItem: currentItem);
-                                  else
+                                  if (currentItem.securityLevelId == 4) {
+                                    // Routes.moveSend(context: context, selectedItem: currentItem);
+                                    Routes.moveSend2(
+                                      ctx: context,
+                                      selectedItem: currentItem,
+                                      rHgt: mHeight,
+                                      rWdt: mWidth,
+                                      langg: lang,
+                                    );
+                                  } else
                                     Routes.moveDashboard(context: context);
                                 }
                               } else {

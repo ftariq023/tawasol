@@ -27,16 +27,47 @@ class SearchResultView extends StatefulWidget {
 
 class _SearchResultViewState extends State<SearchResultView> {
   void onSearchResultItemTapped(BuildContext ctx, SearchResultItem item, int itemIndex) async {
+    // print(item.vsID);
+    // print(AppHelper.getDocumentClassIdByName(item.classDescription).toString());
+    // print(item.classDescription);
+    // return;
+
     AppHelper.showLoaderDialog(ctx);
 
-    ViewDocumentModel viewDocModel = await ServiceHandler.getDocumentContentWithLinks(vsId: item.vsID, docClass: AppHelper.getDocumentClassIdByName(item.classDescription).toString());
+    ViewDocumentModel viewDocModel = await ServiceHandler.getDocumentContentWithLinks(
+      vsId: item.vsID,
+      docClass: AppHelper.getDocumentClassIdByName(item.classDescription).toString(),
+      // docClass: "0",
+    );
+
+    // ViewDocumentModel viewDocModel = await ServiceHandler.getDocumentContentWithLinks(
+    //   vsId: "{3E7E1F5D-9F46-CDD9-841A-9077E5100000}",
+    //   docClass: "0",
+    // );
+
     AppHelper.hideLoader(ctx);
 
-    Routes.moveViewDocument(context: context, linkedDocument: null, docItem: item, viewDocModel: viewDocModel);
+    // ignore: use_build_context_synchronously
+    Routes.moveViewDocument(
+      context: context,
+      linkedDocument: null,
+      docItem: item,
+      viewDocModel: viewDocModel,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    var mqContext = MediaQuery.of(context);
+    var size = mqContext.size;
+
+    var mHeight = size.height - AppBar().preferredSize.height - mqContext.padding.top - mqContext.padding.bottom;
+    var mWidth = size.width;
+
+    bool isPortrait = mqContext.orientation == Orientation.portrait;
+
+    var lang = AppLocalizations.of(context)!;
+
     return Scaffold(
         // backgroundColor: AppHelper.myColor("#f4f4f4"),
         appBar: PreferredSize(
@@ -159,7 +190,14 @@ class _SearchResultViewState extends State<SearchResultView> {
                                 ),
                                 backgroundColor: AppHelper.myColor("#0278AB"),
                                 onPressed: (context) {
-                                  Routes.moveSend(context: context, selectedItem: currentSearchResultItem);
+                                  // Routes.moveSend(context: context, selectedItem: currentSearchResultItem);
+                                  Routes.moveSend2(
+                                    ctx: context,
+                                    selectedItem: currentSearchResultItem,
+                                    rHgt: mHeight,
+                                    rWdt: mWidth,
+                                    langg: lang,
+                                  );
                                 },
                                 child: SlideAction(
                                   imageName: "send_shortcut_new",
@@ -171,9 +209,14 @@ class _SearchResultViewState extends State<SearchResultView> {
                                   //  backgroundColor: Colors.blue.shade900,
                                   backgroundColor: AppHelper.myColor("#1054b9"),
                                   onPressed: (context) {
-                                    Routes.moveMultiSend(
-                                      context: context,
+                                    // Routes.moveMultiSend(
+                                    //   context: context,
+                                    //   selectedItems: [currentSearchResultItem],
+                                    // );
+                                    Routes.moveMultiSend2(
+                                      ctx: context,
                                       selectedItems: [currentSearchResultItem],
+                                      rWdt: mWidth,
                                     );
                                   },
                                   child: SlideAction(imageName: "multi_send_shortcut_new", actionName: AppLocalizations.of(context)!.multiSend)),

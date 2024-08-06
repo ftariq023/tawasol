@@ -79,6 +79,15 @@ class _TerminateDocument2State extends State<TerminateDocument2> {
 
   @override
   Widget build(BuildContext context) {
+    var mqContext = MediaQuery.of(context);
+    var size = mqContext.size;
+
+    var mHeight = size.height - AppBar().preferredSize.height - mqContext.padding.top - mqContext.padding.bottom;
+    var mWidth = size.width;
+
+    bool isPortrait = mqContext.orientation == Orientation.portrait;
+
+    var lang = AppLocalizations.of(context)!;
     return Container(
       decoration: BoxDecoration(
         color: ThemeProvider.isDarkModeCheck() ? Colors.black : Colors.white,
@@ -155,12 +164,13 @@ class _TerminateDocument2State extends State<TerminateDocument2> {
                         children: [
                           //===================================Comment Pop up===========================================
                           Row(
-                            // mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               RadioWithText(
                                 rSelectedOption: selectedOption,
                                 rValue: 1,
                                 rText: "تم الإنجاز",
+                                mWdt: mWidth,
                                 rOnChanged: (value) => setState(() {
                                   selectedOption = value;
                                   userCommentController.text = "تم الإنجاز";
@@ -172,6 +182,7 @@ class _TerminateDocument2State extends State<TerminateDocument2> {
                                 rSelectedOption: selectedOption,
                                 rValue: 2,
                                 rText: "تم العلم",
+                                mWdt: mWidth,
                                 rOnChanged: (value) => setState(() {
                                   selectedOption = value;
                                   userCommentController.text = "تم العلم";
@@ -183,6 +194,7 @@ class _TerminateDocument2State extends State<TerminateDocument2> {
                                 rSelectedOption: selectedOption,
                                 rValue: 3,
                                 rText: "أخرى",
+                                mWdt: mWidth,
                                 rOnChanged: (value) => setState(() {
                                   selectedOption = value;
                                   userCommentController.text = "";

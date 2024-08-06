@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../app_models/app_utilities/app_helper.dart';
+
 class RadioWithText extends StatelessWidget {
   int rValue;
   String rText;
   int rSelectedOption;
+  double mWdt;
   Function(int i) rOnChanged;
 
   RadioWithText({
@@ -11,6 +14,7 @@ class RadioWithText extends StatelessWidget {
     required this.rValue,
     required this.rOnChanged,
     required this.rText,
+    required this.mWdt,
   });
 
   @override
@@ -33,7 +37,17 @@ class RadioWithText extends StatelessWidget {
               // onChanged: (value) {},
             ),
           ),
-          Text(rText),
+          Text(
+            rText,
+            style: TextStyle(
+              // fontSize: Directionality.of(context) == TextDirection.rtl ? mWdt * 0.035 : mWdt * 0.026,
+              fontSize: Directionality.of(context) == TextDirection.rtl
+                  ? AppHelper.isMobileDevice(context)
+                      ? mWdt * 0.035
+                      : mWdt * 0.025
+                  : mWdt * 0.026,
+            ),
+          ),
         ],
       ),
     );

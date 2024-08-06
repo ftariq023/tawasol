@@ -33,6 +33,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class AppHelper {
   static String attachmentErrorMsg = "";
   static bool isSent = false;
+  static bool isClosed = false;
 
   static bool get isAndroid {
     return defaultTargetPlatform == TargetPlatform.android;
@@ -133,11 +134,11 @@ class AppHelper {
 
   static int getDocumentClassIdByName(String docTypeName) {
     switch (docTypeName) {
-      case 'outgoing':
+      case 'outgoing' || 'Outgoing':
         return 0;
-      case 'incoming':
+      case 'incoming' || 'Incoming':
         return 1;
-      case 'internal':
+      case 'internal' || 'Internal':
         return 2;
       default:
         return -1;
@@ -178,8 +179,8 @@ class AppHelper {
     return await ServiceHandler.getUserByCredentials(userName: userName, password: password, ouID: ouId);
   }
 
-// '34MJJn1eLokVPn8rUdShpmdNfMrqA8jI3KUDZXLYke4=:HkYefYrECycVZtIsVzZHpg=='  quality
-// 'KGau22iSmwynj0jCm8wOwlE8Z2kHeYv1Mro0ZfHS1q8=:DibALE+Kv30PjaDRTBdOyw=='  support16
+  // '34MJJn1eLokVPn8rUdShpmdNfMrqA8jI3KUDZXLYke4=:HkYefYrECycVZtIsVzZHpg=='  quality
+  // 'KGau22iSmwynj0jCm8wOwlE8Z2kHeYv1Mro0ZfHS1q8=:DibALE+Kv30PjaDRTBdOyw=='  support16
 
   static Future<TawasolEntity> get getCurrentTawasolEntity async {
     return await CacheManager.getEntityDetailsLocally(AppCacheKeys.entityFileName);
@@ -192,7 +193,7 @@ class AppHelper {
   static UserSession currentUserSession = UserSession();
   static TawasolEntity currentTawasolEntity = TawasolEntity();
 
-//0 english 1 arabic
+  // 0 english 1 arabic
   static void changeLocalization(BuildContext ctx) {
     Locale myLocale = Localizations.localeOf(ctx);
     if (myLocale == L10n.all.elementAt(0)) {
@@ -497,7 +498,6 @@ class AppHelper {
 
   static String removeAllHtmlTags(String htmlText) {
     RegExp exp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
-
     return htmlText.replaceAll(exp, '');
   }
 
@@ -615,9 +615,16 @@ class AppHelper {
                 // if (rCurrentInboxItem.securityLevelId == 4) Routes.moveSend(context: context, selectedItem: rCurrentInboxItem);
                 //
                 if (isApproved) {
-                  if (rCurrentInboxItem.securityLevelId == 4)
-                    Routes.moveSend(context: context, selectedItem: rCurrentInboxItem);
-                  else
+                  if (rCurrentInboxItem.securityLevelId == 4) {
+                    // Routes.moveSend(context: context, selectedItem: rCurrentInboxItem);
+                    Routes.moveSend2(
+                      ctx: context,
+                      selectedItem: rCurrentInboxItem,
+                      rHgt: mHgt,
+                      rWdt: mWdt,
+                      langg: rLang,
+                    );
+                  } else
                     Routes.moveDashboard(context: rBuildContext);
                 }
               } else {
@@ -745,37 +752,114 @@ class AppHelper {
     // print(recentActionsToBeSaved);
     var storage = const FlutterSecureStorage();
     storage.write(key: "mostUsedActions", value: recentActionsToBeSaved);
+    // storage.write(key: "mostUsedActions", value: "");
+    // storage.delete(key: "mostUsedActions");
+  }
+
+  static void saveRecentlyUsedActionsNew(WfAction latestAction) {
+    if (recentActions.isNotEmpty && recentActions[0] == latestAction) return;
+    List<WfAction> updatedRecentActions = [];
+    if (!recentActions.contains(latestAction)) {
+      // print("doesnt contain");
+      updatedRecentActions = [latestAction];
+      int i = 1;
+      for (WfAction anAction in recentActions) {
+        if (i == 4) break;
+        // updatedRecentActions[i++] = anAction;
+        updatedRecentActions.add(anAction);
+        i++;
+      }
+    } else {
+      // print("contain");
+      // updatedRecentActions = recentActions;
+      // int indexOfNewAction = recentActions.indexOf(latestAction);
+      // updatedRecentActions[indexOfNewAction] = updatedRecentActions[0]; // swapping
+      // updatedRecentActions[0] = latestAction;
+      //
+      updatedRecentActions = [latestAction];
+      // int i = 1;
+      for (WfAction anAction in recentActions) {
+        // if (i == 4) break;
+        if (anAction != latestAction) updatedRecentActions.add(anAction);
+        // i++;
+      }
+    }
+    recentActions = updatedRecentActions;
+
+    // storing in local strg:
+    String recentActionsToBeSaved = '';
+    for (WfAction anAction in recentActions) {
+      String anActionInString = anAction.actionID.toString() + "/" + anAction.enActionName + "/" + anAction.arActionName + ",";
+      recentActionsToBeSaved += anActionInString;
+    }
+    recentActionsToBeSaved = recentActionsToBeSaved.substring(0, recentActionsToBeSaved.length - 1);
+    // print(recentActionsToBeSaved);
+    var storage = const FlutterSecureStorage();
+    storage.write(key: "mostUsedActions", value: recentActionsToBeSaved);
+    // storage.write(key: "mostUsedActions", value: "");
+    // storage.delete(key: "mostUsedActions");
   }
 
   //users:
   static List<AppUser> recentUsers = [];
+
+  // static void processStoredRecentUsers(String users) {
+  //   // print(users);
+  //   List listOfUnsetUsers = users.split(",");
+  //   for (String unsetUser in listOfUnsetUsers) {
+  //     List singleUser = unsetUser.split("/");
+  //     recentUsers.add(AppUser(
+  //       int.parse(singleUser[0]),
+  //       "",
+  //       "",
+  //       singleUser[1],
+  //       null,
+  //       null,
+  //       null,
+  //       null,
+  //       null,
+  //       null,
+  //       null,
+  //       null,
+  //       false,
+  //       false,
+  //       int.parse(singleUser[2]),
+  //       0,
+  //       "",
+  //       "",
+  //       false,
+  //     ));
+  //   }
+  // }
 
   static void processStoredRecentUsers(String users) {
     // print(users);
     List listOfUnsetUsers = users.split(",");
     for (String unsetUser in listOfUnsetUsers) {
       List singleUser = unsetUser.split("/");
-      recentUsers.add(AppUser(
-        int.parse(singleUser[0]),
-        "",
-        "",
-        singleUser[1],
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        false,
-        false,
-        int.parse(singleUser[2]),
-        0,
-        "",
-        "",
-        false,
-      ));
+      if (singleUser.length > 3) {
+        recentUsers.add(AppUser(
+          int.parse(singleUser[0]),
+          singleUser[4],
+          "",
+          singleUser[1],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          false,
+          false,
+          int.parse(singleUser[2]),
+          0,
+          singleUser[3],
+          "",
+          false,
+        ));
+      }
     }
   }
 
@@ -790,16 +874,17 @@ class AppHelper {
       for (AppUser recentUser in recentUsers) {
         updatedRecentUsers.add(recentUser);
       }
+      //
       updatedRecentUsers = updatedRecentUsers.toSet().toList();
+      //
       if (updatedRecentUsers.length > 3) updatedRecentUsers = [updatedRecentUsers[0], updatedRecentUsers[1], updatedRecentUsers[2]];
       recentUsers = updatedRecentUsers;
     }
     // storing in local strg:
     String recentUsersToBeSaved = '';
     for (AppUser recentUser in recentUsers) {
-      // String userInString = recentUser.id.toString() + ",";
       // String userInString = recentUser.id.toString() + "/" + recentUser.arAppUserName + "/" + recentUser.ouId.toString() + ",";
-      String userInString = recentUser.id.toString() + "/" + recentUser.arAppUserName + "/" + recentUser.ouId.toString() + ",";
+      String userInString = recentUser.id.toString() + "/" + recentUser.arAppUserName + "/" + recentUser.ouId.toString() + "/" + recentUser.arOuName + "/" + recentUser.loginName + ",";
       recentUsersToBeSaved += userInString;
     }
     recentUsersToBeSaved = recentUsersToBeSaved.substring(0, recentUsersToBeSaved.length - 1);

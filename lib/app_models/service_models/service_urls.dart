@@ -5,8 +5,8 @@ class AppServiceURLS {
   // static const baseUrl = 'https://tawasol.qfc.qa:9443';
   // static const baseUrl = 'http://192.168.56.4:9080';
 
-  static const baseUrl = 'http://192.168.56.4:5003';
-  // static const baseUrl = 'https://tawasolprd.moi.gov.qa';
+  // static const baseUrl = 'http://192.168.56.4:5003';
+  static const baseUrl = 'https://tawasolprd.moi.gov.qa';
   // static const baseUrl = 'https://pmocms.pmo.gov.qa';
 
   // bundle ids:

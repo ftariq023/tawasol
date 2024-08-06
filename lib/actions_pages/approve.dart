@@ -31,6 +31,16 @@ class _ApproveDocumentState extends State<ApproveDocument> {
 
   @override
   Widget build(BuildContext context) {
+    var mqContext = MediaQuery.of(context);
+    var size = mqContext.size;
+
+    var mHeight = size.height - AppBar().preferredSize.height - mqContext.padding.top - mqContext.padding.bottom;
+    var mWidth = size.width;
+
+    bool isPortrait = mqContext.orientation == Orientation.portrait;
+
+    var lang = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: PreferredSize(
@@ -124,9 +134,16 @@ class _ApproveDocumentState extends State<ApproveDocument> {
                   //
                   if (isApproved) {
                     Navigator.of(context).pop();
-                    if (widget.selectedInboxItem.securityLevelId == 4)
-                      Routes.moveSend(context: context, selectedItem: widget.selectedInboxItem);
-                    else {
+                    if (widget.selectedInboxItem.securityLevelId == 4) {
+                      // ignore: use_build_context_synchronously
+                      Routes.moveSend2(
+                        ctx: context,
+                        selectedItem: widget.selectedInboxItem,
+                        rHgt: mHeight,
+                        rWdt: mWidth,
+                        langg: lang,
+                      );
+                    } else {
                       if (Navigator.of(context).canPop()) {
                         Navigator.of(context).pop();
                       }

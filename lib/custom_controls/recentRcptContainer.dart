@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../theme/theme_provider.dart';
+
 class RecentRcptContainer extends StatelessWidget {
   String rcptName;
   double mHgt;
@@ -29,7 +31,11 @@ class RecentRcptContainer extends StatelessWidget {
               // color: Color(0XFFF1EDE6),
               padding: EdgeInsets.all(mWdt * 0.02),
               decoration: BoxDecoration(
-                color: isChecked ? appPrimClr : const Color(0XFFF1EDE6),
+                color: isChecked
+                    ? appPrimClr
+                    : ThemeProvider.isDarkModeCheck()
+                        ? Colors.grey[700]
+                        : const Color(0XFFF1EDE6),
                 // borderRadius: BorderRadius.circular(12.0),
                 borderRadius: BorderRadius.circular(mWdt * 0.05),
               ),

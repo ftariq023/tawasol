@@ -674,10 +674,17 @@ class _DashboardState extends State<Dashboard> {
                                         const SizedBox(
                                           width: 20,
                                         ),
-                                        Text(
-                                          // '${AppHelper.currentUserSession.ouName}',
-                                          VersionProvider.depName.isEmpty ? AppHelper.currentUserSession.ouName : VersionProvider.depName,
-                                          style: const TextStyle(overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w600, fontSize: 14),
+                                        SizedBox(
+                                          width: 200,
+                                          child: Text(
+                                            // maxLines: 3,
+                                            // '${AppHelper.currentUserSession.ouName}',
+                                            VersionProvider.depName.isEmpty ? AppHelper.currentUserSession.ouName : VersionProvider.depName,
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14,
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),

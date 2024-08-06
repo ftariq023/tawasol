@@ -41,10 +41,10 @@ class _LoginState extends State<Login> {
   bool _supportState = false;
   final loginFormKey = GlobalKey<FormState>();
   List<BiometricType> listOfAuthentications = [];
-  // final usernameController = TextEditingController();
-  // final passwordController = TextEditingController();
-  final usernameController = TextEditingController(text: "tawasol1");
-  final passwordController = TextEditingController(text: "P@ssw0rd");
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  // final usernameController = TextEditingController(text: "tawasol1");
+  // final passwordController = TextEditingController(text: "P@ssw0rd");
   final entityCodeController = TextEditingController();
   final entityURLController = TextEditingController();
 

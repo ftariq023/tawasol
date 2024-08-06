@@ -35,37 +35,37 @@ class CustomDialog {
         });
   }
 
-  static showTerminateDialog(BuildContext context, List currentInboxItems) {
-    //String comment = '';
-    showDialog(
-        context: context,
-        useSafeArea: true,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            // shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(7))),
-            contentPadding: EdgeInsets.zero,
-            // backgroundColor: Colors.red,
-            scrollable: true,
-            titlePadding: EdgeInsets.zero,
-            title: null,
-            content: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                ),
-              ),
-              height: 320,
-              width: 700,
-              child: TerminateDocument(
-                selectedInboxItems: currentInboxItems,
-              ),
-            ),
-            actions: null,
-          );
-        });
-  }
+  // static showTerminateDialog(BuildContext context, List currentInboxItems) {
+  //   //String comment = '';
+  //   showDialog(
+  //       context: context,
+  //       useSafeArea: true,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           // shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(7))),
+  //           contentPadding: EdgeInsets.zero,
+  //           // backgroundColor: Colors.red,
+  //           scrollable: true,
+  //           titlePadding: EdgeInsets.zero,
+  //           title: null,
+  //           content: Container(
+  //             decoration: const BoxDecoration(
+  //               color: Colors.white,
+  //               borderRadius: BorderRadius.only(
+  //                 topLeft: Radius.circular(50),
+  //                 topRight: Radius.circular(50),
+  //               ),
+  //             ),
+  //             height: 320,
+  //             width: 700,
+  //             child: TerminateDocument(
+  //               selectedInboxItems: currentInboxItems,
+  //             ),
+  //           ),
+  //           actions: null,
+  //         );
+  //       });
+  // }
 
   static showTerminateDialog2(BuildContext context, List currentInboxItems, double mHgt) {
     //String comment = '';

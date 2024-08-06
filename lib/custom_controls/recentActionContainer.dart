@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../theme/theme_provider.dart';
+
 class RecentActionContainer extends StatelessWidget {
   String actionName;
   double mHgt;
@@ -26,7 +28,7 @@ class RecentActionContainer extends StatelessWidget {
               padding: EdgeInsets.all(mWdt * 0.02),
               decoration: BoxDecoration(
                 // color: ThemeProvider.lightenClr(ThemeProvider.primaryColor, 12),
-                color: Color(0XFFF1EDE6),
+                color: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : const Color(0XFFF1EDE6),
                 // borderRadius: BorderRadius.circular(12.0),
                 borderRadius: BorderRadius.circular(mWdt * 0.05),
               ),

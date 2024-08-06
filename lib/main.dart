@@ -21,8 +21,7 @@ import 'package:tawasol/theme/theme_provider.dart';
 import './app_models/app_utilities/app_helper.dart';
 import 'landing_page/login.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
-import 'main_page/search2.dart';
+// import 'main_page/search2.dart';
 // import 'package:animated_splash_screen/animated_splash_screen.dart';
 // import 'package:dynatrace_flutter_plugin/dynatrace_flutter_plugin.dart';
 

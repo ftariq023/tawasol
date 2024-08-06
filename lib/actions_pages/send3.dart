@@ -21,11 +21,13 @@ import '../custom_controls/recentActionContainer.dart';
 
 class Send3 extends StatefulWidget {
   dynamic selectedItem;
+  // var ctx;
   final bool isFromSearchShortcut;
 
   Send3({
     super.key,
     required this.selectedItem,
+    // required this.ctx,
     this.isFromSearchShortcut = false,
   });
 
@@ -226,14 +228,19 @@ class _SendState extends State<Send3> {
       if (result) {
         AppHelper.isSent = true;
         await Haptics.vibrate(HapticsType.success);
-        AppHelper.saveRecentlyUsedActions(_selectedAction!);
+        // AppHelper.saveRecentlyUsedActions(_selectedAction!);
+        AppHelper.saveRecentlyUsedActionsNew(_selectedAction!);
+        await Future.delayed(const Duration(seconds: 2));
+        // if (Navigator.of(context).canPop()) Navigator.of(context).pop();
+        if (!AppHelper.isClosed) Navigator.of(context).pop();
       } else
         await Haptics.vibrate(HapticsType.error);
     }
 
     Widget getHeaderIconBtn(bool isBack) {
       return GestureDetector(
-        onTap: isBack ? goToPrevPg : () => Navigator.of(context).pop(),
+        // onTap: isBack ? goToPrevPg : () => Navigator.of(context).pop(),
+        onTap: isBack ? goToPrevPg : () {},
         child: Container(
           // height: double.infinity,
           width: mHeight * 0.055,
@@ -241,7 +248,7 @@ class _SendState extends State<Send3> {
           //   border: Border.all(width: 1, color: Colors.black),
           // ),
           child: Icon(
-            isBack ? Icons.arrow_back_ios_new : Icons.close,
+            isBack ? Icons.arrow_back_ios_new : null,
             color: isBack && (screen == 1 || screen == 3) ? Colors.transparent : null,
             size: isMob
                 ? mWidth * 0.0525
@@ -266,10 +273,10 @@ class _SendState extends State<Send3> {
       child: Container(
         height: mHeight * 0.65,
         width: double.infinity,
-        // color: const Color(0XFFFFFFFF),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(mWidth * 0.05),
-          color: const Color(0XFFFFFFFF),
+          // color: const Color(0XFFFFFFFF),
+          color: ThemeProvider.isDarkModeCheck() ? Colors.black : Colors.white,
         ),
         // padding: EdgeInsets.symmetric(horizontal: mWidth * 0.1),
         child: Column(
@@ -506,7 +513,7 @@ class _SendState extends State<Send3> {
                                     SizedBox(height: mHeight * 0.02),
                                     Container(
                                       height: isMob
-                                          ? mHeight * 0.162
+                                          ? mHeight * 0.185
                                           : isPortrait
                                               ? mHeight * 0.15
                                               : mHeight * 0.18,
@@ -521,10 +528,10 @@ class _SendState extends State<Send3> {
                                                     ? mHeight * 0.13
                                                     : mHeight * 0.162,
                                             padding: const EdgeInsets.all(8.0),
-                                            decoration: const BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                                            decoration: BoxDecoration(
+                                              borderRadius: const BorderRadius.all(Radius.circular(8)),
                                               // border: Border.all(color: Colors.black, width: 1),
-                                              color: Color(0XFFF1F1F1), //AppHelper.myColor('#ededed'),
+                                              color: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : Color(0XFFF1F1F1), //AppHelper.myColor('#ededed'),
                                             ),
                                             child: TextFormField(
                                               controller: userCommentController,

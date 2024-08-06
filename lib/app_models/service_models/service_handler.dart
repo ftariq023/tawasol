@@ -85,7 +85,10 @@ class ServiceHandler {
 
     myRequest.authenticationRequired = isChangeDepartment;
     myRequest.serviceRelativeUrl = ouID == null ? AppServiceURLS.mobilityLogin : AppServiceURLS.changeOrganizationUnit;
-    MyServiceResponse myServiceResponse = await ServiceHandlerBase.postData(myServiceRequest: myRequest, authenticationRequired: ouID == null ? false : true);
+    MyServiceResponse myServiceResponse = await ServiceHandlerBase.postData(
+      myServiceRequest: myRequest,
+      authenticationRequired: ouID == null ? false : true,
+    );
 
     if (myServiceResponse.isSuccessResponse) {
       bool isBioMetricEnabled = AppHelper.currentUserSession.isBiometricEnabled;
@@ -240,7 +243,11 @@ class ServiceHandler {
     return appUserList;
   }
 
-  static Future<ViewDocumentModel> getDocumentContentWithLinks({required String vsId, required String docClass, String wobNumber = ''}) async {
+  static Future<ViewDocumentModel> getDocumentContentWithLinks({
+    required String vsId,
+    required String docClass,
+    String wobNumber = '',
+  }) async {
     MyServiceRequest myRequest = MyServiceRequest();
 
     myRequest.serviceRelativeUrl = AppServiceURLS.getDocumentContentWithLinks.replaceAll('{VSID}', vsId).replaceAll('{WobNumber}', wobNumber).replaceAll(
@@ -511,7 +518,7 @@ class ServiceHandler {
         }
       }
 
-      debugPrint(searchType);
+      // print(searchType);
 
       myRequest.serviceRelativeUrl = AppServiceURLS.search.replaceAll('{DocType}', searchType);
       Map<String, Object?> formParams = {

@@ -16,20 +16,31 @@ import '../app_models/app_view_models/user_signature.dart';
 import '../custom_controls/custom_dialog.dart';
 
 class ViewLinkAttachment extends StatelessWidget {
-  const ViewLinkAttachment(
-      {super.key,
-      required this.isFromTransfer,
-      required this.currentItem,
-      required this.docSubject,
-      required this.docContent});
-
   final dynamic currentItem;
   final String docSubject;
   final bool isFromTransfer;
   final Uint8List? docContent;
 
+  const ViewLinkAttachment({
+    super.key,
+    required this.isFromTransfer,
+    required this.currentItem,
+    required this.docSubject,
+    required this.docContent,
+  });
+
   @override
   Widget build(BuildContext context) {
+    var mqContext = MediaQuery.of(context);
+    var size = mqContext.size;
+
+    var mHeight = size.height - AppBar().preferredSize.height - mqContext.padding.top - mqContext.padding.bottom;
+    var mWidth = size.width;
+
+    bool isPortrait = mqContext.orientation == Orientation.portrait;
+
+    var lang = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -38,14 +49,11 @@ class ViewLinkAttachment extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              if (AppHelper.listOfVIPUsers.contains(
-                  AppHelper.currentUserSession.userName.toLowerCase())) {
+              if (AppHelper.listOfVIPUsers.contains(AppHelper.currentUserSession.userName.toLowerCase())) {
                 await Printing.layoutPdf(onLayout: (_) => docContent!);
               } else {
-                PrintDocInfo.printGeneratedDocInfoPdf(
-                    currentItem, context, false);
+                PrintDocInfo.printGeneratedDocInfoPdf(currentItem, context, false);
               }
-
               // PrintDocInfo.printGeneratedDocInfoPdf(
               //     currentItem, context, false);
               //  Routes.movePrint(context: context, docFile: docContent!);
@@ -79,102 +87,76 @@ class ViewLinkAttachment extends StatelessWidget {
           : Container(
               color: Theme.of(context).colorScheme.primary,
               child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 20.0, right: 20, top: 0, bottom: 20),
+                padding: const EdgeInsets.only(left: 20.0, right: 20, top: 0, bottom: 20),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: currentItem is SentItem
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: currentItem is SentItem ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                   children: [
                     if (currentItem is! SentItem)
                       TextButton(
                           onPressed: () {
-                            Routes.moveSend(
-                                context: context, selectedItem: currentItem);
+                            // Routes.moveSend(context: context, selectedItem: currentItem);
+                            Routes.moveSend2(
+                              ctx: context,
+                              selectedItem: currentItem,
+                              rHgt: mHeight,
+                              rWdt: mWidth,
+                              langg: lang,
+                            );
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.send,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w200),
+                            lang.send,
+                            style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w200),
                           )),
-                    if (currentItem is! SearchResultItem &&
-                        currentItem is! SentItem &&
-                        currentItem.isApproveEnabled)
+                    if (currentItem is! SearchResultItem && currentItem is! SentItem && currentItem.isApproveEnabled)
                       TextButton(
                           onPressed: () async {
                             AppHelper.showLoaderDialog(context);
-                            List<UserSignature> signatureList =
-                                await AppHelper.getUserSignatures(context);
+                            List<UserSignature> signatureList = await AppHelper.getUserSignatures(context);
                             // AppHelper.hideLoader(buildContext);
-                            if (AppHelper.currentUserSession.userName
-                                        .toLowerCase() ==
-                                    AppHelper.ministerUser ||
-                                signatureList
-                                        .where((sign) =>
-                                            sign.signContent.isNotEmpty)
-                                        .length ==
-                                    1) {
-                              bool isApproved = await AppHelper.onApproveTapped(
-                                  context: context,
-                                  inboxItem: currentItem,
-                                  signatureVsId: signatureList
-                                      .firstWhere((signature) =>
-                                          signature.signContent.isNotEmpty)
-                                      .vsId,
-                                  isNeedShowLoader: false);
+                            if (AppHelper.currentUserSession.userName.toLowerCase() == AppHelper.ministerUser || signatureList.where((sign) => sign.signContent.isNotEmpty).length == 1) {
+                              bool isApproved = await AppHelper.onApproveTapped(context: context, inboxItem: currentItem, signatureVsId: signatureList.firstWhere((signature) => signature.signContent.isNotEmpty).vsId, isNeedShowLoader: false);
 
                               if (isApproved) {
                                 Routes.moveDashboard(context: context);
                               }
                             } else {
-                              CustomDialog.showApproveDialog(
-                                  context, currentItem);
+                              CustomDialog.showApproveDialog(context, currentItem);
                             }
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.approve,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w200),
+                            lang.approve,
+                            style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w200),
                           )),
-                    if (((currentItem is SearchResultItem ||
-                                currentItem is SentItem) &&
-                            currentItem.docSerial.isNotEmpty) ||
-                        (currentItem is InboxItem &&
-                            !currentItem.isApproveEnabled))
+                    if (((currentItem is SearchResultItem || currentItem is SentItem) && currentItem.docSerial.isNotEmpty) || (currentItem is InboxItem && !currentItem.isApproveEnabled))
                       TextButton(
                           onPressed: () {
-                            Routes.moveMultiSend(
-                              context: context,
+                            // Routes.moveMultiSend(
+                            //   context: context,
+                            //   selectedItems: [currentItem],
+                            // );
+                            Routes.moveMultiSend2(
+                              ctx: context,
                               selectedItems: [currentItem],
+                              rWdt: mWidth,
                             );
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.multiSend,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w200),
+                            lang.multiSend,
+                            style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w200),
                           )),
-                    if (currentItem is! SearchResultItem &&
-                        currentItem is! SentItem)
+                    if (currentItem is! SearchResultItem && currentItem is! SentItem)
                       TextButton(
                           onPressed: () {
-                            CustomDialog.showTerminateDialog(
+                            CustomDialog.showTerminateDialog2(
                               context,
                               [currentItem],
+                              mHeight,
                             );
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.terminate,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w200),
+                            lang.terminate,
+                            style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w200),
                           )),
                   ],
                 ),

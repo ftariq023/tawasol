@@ -163,9 +163,14 @@ class _SentItemState extends State<SentItemView> {
                                       ),
                                       backgroundColor: AppHelper.myColor("#1054b9"),
                                       onPressed: (context) {
-                                        Routes.moveMultiSend(
-                                          context: context,
+                                        // Routes.moveMultiSend(
+                                        //   context: context,
+                                        //   selectedItems: [currentSentItem],
+                                        // );
+                                        Routes.moveMultiSend2(
+                                          ctx: context,
                                           selectedItems: [currentSentItem],
+                                          rWdt: mWidth,
                                         );
                                       },
                                       child: SlideAction(

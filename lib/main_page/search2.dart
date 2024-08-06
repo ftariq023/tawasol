@@ -78,7 +78,10 @@ class SearchState extends State<Search2> {
         value: item,
         child: Text(
           item,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
         ),
       );
 
@@ -92,8 +95,6 @@ class SearchState extends State<Search2> {
         return AppDefaultKeys.searchTypeIncoming;
       case 3:
         return AppDefaultKeys.searchTypeInternal;
-      // case 4:
-      //   return AppDefaultKeys.searchTypeGeneral;
     }
     return AppDefaultKeys.searchTypeGeneral;
   }
@@ -137,12 +138,6 @@ class SearchState extends State<Search2> {
     });
   }
 
-  // SpeechToText _speechToText = SpeechToText();
-  // bool _speechEnabled = false;
-
-  // stt.SpeechToText _speech;
-  // bool _isListening = false;
-
   @override
   Widget build(BuildContext context) {
     var mqContext = MediaQuery.of(context);
@@ -177,6 +172,8 @@ class SearchState extends State<Search2> {
 
     void search() async {
       // print("search");
+      // print(topBarController.selectedIndex!);
+      // print(getSearchTypeByIndex(topBarController.selectedIndex!));
       // return;
       try {
         if (searchFormKey.currentState!.validate()) {
@@ -254,10 +251,10 @@ class SearchState extends State<Search2> {
         }
       } catch (e) {
         AppHelper.hideLoader(context);
-        var snackBar = SnackBar(
-          content: Text(e.toString()),
+        // var snackBar = SnackBar(content: Text(e.toString()));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
         );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
 
@@ -487,13 +484,8 @@ class SearchState extends State<Search2> {
                   //   ),
                   // ),
                   Container(
-                    width: mWidth * 0.8,
-                    // decoration: BoxDecoration(
-                    //   border: Border.all(
-                    //     width: 1,
-                    //     color: Colors.red,
-                    //   ),
-                    // ),
+                    // width: mWidth * 0.8,
+                    // decoration: BoxDecoration(border: Border.all(width: 1, color: Colors.red)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -501,6 +493,7 @@ class SearchState extends State<Search2> {
                           rSelectedOption: selectedOption,
                           rValue: 1,
                           rText: lang.general,
+                          mWdt: mWidth,
                           rOnChanged: (value) => setState(() {
                             selectedOption = value;
                             Haptics.vibrate(HapticsType.light);
@@ -512,6 +505,7 @@ class SearchState extends State<Search2> {
                           rSelectedOption: selectedOption,
                           rValue: 2,
                           rText: lang.outgoing,
+                          mWdt: mWidth,
                           rOnChanged: (value) => setState(() {
                             selectedOption = value;
                             Haptics.vibrate(HapticsType.light);
@@ -523,6 +517,7 @@ class SearchState extends State<Search2> {
                           rSelectedOption: selectedOption,
                           rValue: 3,
                           rText: lang.incoming,
+                          mWdt: mWidth,
                           rOnChanged: (value) => setState(() {
                             selectedOption = value;
                             Haptics.vibrate(HapticsType.light);
@@ -534,6 +529,7 @@ class SearchState extends State<Search2> {
                           rSelectedOption: selectedOption,
                           rValue: 4,
                           rText: lang.internal,
+                          mWdt: mWidth,
                           rOnChanged: (value) => setState(() {
                             selectedOption = value;
                             Haptics.vibrate(HapticsType.light);

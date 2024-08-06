@@ -161,6 +161,10 @@ class _InboxState extends State<Inbox> {
       }
 
       // print('The SIgnature counts for this Inbox Item is '+ item.signatureCount.toString());
+      // print("wob");
+      // print(item.wobNumber);
+      // print(item.vsID);
+      // print(item.docClassId.toString());
 
       ViewDocumentModel viewDocModel = await ServiceHandler.getDocumentContentWithLinks(
         vsId: item.vsID,
@@ -969,9 +973,14 @@ class _InboxState extends State<Inbox> {
                                 if (widget.selectedMailIndexes.isEmpty) return;
                                 List selectedItems = [];
                                 for (var index in widget.selectedMailIndexes) selectedItems.add(setInboxItems[index]);
-                                Routes.moveMultiSend(
-                                  context: context,
+                                // Routes.moveMultiSend(
+                                //   context: context,
+                                //   selectedItems: selectedItems,
+                                // );
+                                Routes.moveMultiSend2(
+                                  ctx: context,
                                   selectedItems: selectedItems,
+                                  rWdt: mWidth,
                                 );
                               },
                               child: Text(

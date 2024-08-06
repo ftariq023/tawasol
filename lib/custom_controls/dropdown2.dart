@@ -144,9 +144,10 @@ class Dropdown2 extends StatelessWidget {
         baseStyle: TextStyle(color: isDarkMode ? Colors.white : appPrimaryColor),
         textAlignVertical: TextAlignVertical.center,
         dropdownSearchDecoration: InputDecoration(
-          border: const OutlineInputBorder(borderSide: BorderSide(width: 10)),
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(width: 10),
+          ),
           isCollapsed: !isShowBorder,
-          // errorStyle: const TextStyle(color: Colors.red),
           prefixIcon: prefixIconData != null
               ? Icon(
                   prefixIconData,
@@ -161,8 +162,9 @@ class Dropdown2 extends StatelessWidget {
           // decoration: const InputDecoration(
           //   border: OutlineInputBorder(),
           // ),
-          // fillColor: ThemeProvider.isDarkModeCheck() ? Colors.grey.shade900 : AppHelper.myColor('#f4f4f4'),
-          fillColor: const Color(0XFFF1F1F1),
+          // fillColor: const Color(0XFFF1F1F1),
+          fillColor: ThemeProvider.isDarkModeCheck() ? Colors.grey[700] : const Color(0XFFF1F1F1),
+          // fillColor: Colors.grey[700],
           isDense: AppHelper.isMobileDevice(context),
           // enabledBorder: isShowBorder ? OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide(color: ThemeProvider.isDarkModeCheck() ? Colors.white : Colors.black, width: 1)) : InputBorder.none,
           enabledBorder: OutlineInputBorder(

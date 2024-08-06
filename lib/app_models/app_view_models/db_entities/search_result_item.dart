@@ -7,6 +7,7 @@ class SearchResultItem {
   SearchResultItem.fromEmpty(dynamic item) {
     try {
       vsID = item["vsId"];
+      // wobNumber = item['generalStepElm']['workObjectNumber'] ?? '';
       docSubject = item["docSubject"].toString().trim().replaceAll("\n\n\n", " ").replaceAll("\n\n", " ").replaceAll("\n", " ") ?? '';
       docSerial = item["docFullSerial"] ?? '';
       comment = item["docNotes"] ?? '';
@@ -49,6 +50,9 @@ class SearchResultItem {
 
   String enMainSite = '';
   String arMainSite = '';
+
+  //
+  // String wobNumber = '';
 
   String get mainSite => AppHelper.isCurrentArabic ? arMainSite : enMainSite;
 

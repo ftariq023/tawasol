@@ -49,14 +49,14 @@ class Routes {
         ),
       );
 
-  static moveSend({required BuildContext context, required dynamic selectedItem, bool isFromSearchShortcut = false}) => Navigator.of(context).push(
-        AppUIHelper.pageBuilder(
-          Send(
-            selectedItem: selectedItem,
-            isFromSearchShortcut: isFromSearchShortcut,
-          ),
-        ),
-      );
+  // static moveSend({required BuildContext context, required dynamic selectedItem, bool isFromSearchShortcut = false}) => Navigator.of(context).push(
+  //       AppUIHelper.pageBuilder(
+  //         Send(
+  //           selectedItem: selectedItem,
+  //           isFromSearchShortcut: isFromSearchShortcut,
+  //         ),
+  //       ),
+  //     );
 
   static moveSend2({
     required BuildContext ctx,
@@ -80,9 +80,12 @@ class Routes {
         //   selectedItem: selectedItem,
         //   isFromSearchShortcut: isFromSearchShortcut,
         // );
+        // final sheetContext = context;
+        AppHelper.isClosed = false;
         return Send3(
           selectedItem: selectedItem,
           isFromSearchShortcut: isFromSearchShortcut,
+          // ctx: context,
         );
       },
     ).then((value) {
@@ -91,6 +94,7 @@ class Routes {
         AppHelper.isSent = false;
         Routes.moveDashboard(context: ctx);
         // Navigator.pushNamed(context, routeName)
+        AppHelper.isClosed = true;
       }
     });
   }
@@ -126,12 +130,12 @@ class Routes {
         )),
       );
 
-  static moveMultiSend({required BuildContext context, required List selectedItems, bool isFromSearchShortcut = false}) => Navigator.of(context).push(
-        AppUIHelper.pageBuilder(MultiSend(
-          selectedItems: selectedItems,
-          isFromSearchShortcut: isFromSearchShortcut,
-        )),
-      );
+  // static moveMultiSend({required BuildContext context, required List selectedItems, bool isFromSearchShortcut = false}) => Navigator.of(context).push(
+  //       AppUIHelper.pageBuilder(MultiSend(
+  //         selectedItems: selectedItems,
+  //         isFromSearchShortcut: isFromSearchShortcut,
+  //       )),
+  //     );
 
   static moveMultiSend2({
     required List selectedItems,
@@ -149,6 +153,7 @@ class Routes {
         ),
       ),
       builder: (BuildContext context) {
+        AppHelper.isClosed = false;
         return MultiSend2(
           selectedItems: selectedItems,
           isFromSearchShortcut: isFromSearchShortcut,
@@ -158,6 +163,7 @@ class Routes {
       if (AppHelper.isSent) {
         AppHelper.isSent = false;
         Routes.moveDashboard(context: ctx);
+        AppHelper.isClosed = true;
       }
     });
   }
